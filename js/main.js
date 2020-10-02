@@ -2,14 +2,20 @@
 
 {
   const images = [
-    "img/pic00.png",
     "img/pic01.png",
+    "img/01ミミズ.png",
     "img/pic02.png",
+    "img/02ヘビ.png",
     "img/pic03.png",
+    "img/03ウツボ.png",
     "img/pic04.png",
+    "img/04リヴァイアサン.png",
     "img/pic05.png",
+    "img/05骨.png",
     "img/pic06.png",
+    "img/05卵.png",
     "img/pic07.png",
+    "img/07孵化.png",
   ];
   let currentIndex = 0;
 
@@ -24,6 +30,7 @@
     if (index === currentIndex) {
       li.classList.add("current");
     }
+
     li.addEventListener("click", () => {
       mainImage.src = image;
       const thumbnails = document.querySelectorAll(".thumbnails > li");
@@ -36,20 +43,20 @@
     document.querySelector(".thumbnails").appendChild(li);
   });
 
-  const prev = document.getElementById("prev");
-  prev.addEventListener("click", () => {
-    let target = currentIndex - 1;
-    if (target < 0) {
-      target = images.length - 1;
-    }
-    document.querySelectorAll(".thumbnails > li")[target].click();
-  });
-
   const next = document.getElementById("next");
   next.addEventListener("click", () => {
     let target = currentIndex + 1;
     if (target === images.length) {
       target = 0;
+    }
+    document.querySelectorAll(".thumbnails > li")[target].click();
+  });
+
+  const prev = document.getElementById("prev");
+  prev.addEventListener("click", () => {
+    let target = currentIndex - 1;
+    if (target < 0) {
+      target = images.length - 1;
     }
     document.querySelectorAll(".thumbnails > li")[target].click();
   });
@@ -72,7 +79,7 @@
       play.textContent = "pause";
     } else {
       clearTimeout(timeoutId);
-      play.textContent = "play";
+      play.textContent = "Play";
     }
     isPlaying = !isPlaying;
   });
